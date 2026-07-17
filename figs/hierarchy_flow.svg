@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="560" viewBox="0 0 1000 560" font-family="'Yu Gothic UI','Hiragino Sans','Noto Sans JP',sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+    </marker>
+  </defs>
+  <rect width="1000" height="560" fill="#ffffff"/>
+
+  <!-- Stage 0: 投球予測AI (本研究で追加) -->
+  <rect x="200" y="14" width="600" height="50" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/>
+  <text x="500" y="34" text-anchor="middle" font-size="15" font-weight="bold" fill="#0c4a6e">投球予測AI: 次の1球（球種 × コース）を読む</text>
+  <text x="500" y="53" text-anchor="middle" font-size="12" fill="#0369a1">球種予測（Top-1 0.46 / Top-3 0.88）・コース予測（確率マップ、ゾーンTop-1 0.23）とも実装済み</text>
+
+  <!-- 矢印: 投球AI → スイングする？ -->
+  <polyline points="500,64 500,90 205,90 205,118" fill="none" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="510" y="84" font-size="12" fill="#334155">予測した次の1球 ＋ 試合状況・投打の履歴</text>
+
+  <!-- Stage 1: スイングする？ -->
+  <rect x="120" y="120" width="170" height="44" rx="6" fill="#f1f5f9" stroke="#475569" stroke-width="1.5"/>
+  <text x="205" y="147" text-anchor="middle" font-size="15" font-weight="bold" fill="#1e293b">スイングする？</text>
+
+  <!-- しない → 見送り -->
+  <line x1="205" y1="164" x2="205" y2="468" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="215" y="320" font-size="13" fill="#334155">しない</text>
+
+  <!-- する → スイング結果 -->
+  <polyline points="290,142 455,142 455,218" fill="none" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="330" y="136" font-size="13" fill="#334155">する</text>
+
+  <!-- Stage 2: スイング結果は？ -->
+  <rect x="360" y="220" width="190" height="44" rx="6" fill="#f1f5f9" stroke="#475569" stroke-width="1.5"/>
+  <text x="455" y="247" text-anchor="middle" font-size="15" font-weight="bold" fill="#1e293b">スイング結果は？</text>
+
+  <!-- スイング結果 → 空振り / ファール -->
+  <polyline points="455,264 455,410 400,410 400,468" fill="none" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <polyline points="455,410 505,410 505,468" fill="none" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- インプレー → 打球の質 -->
+  <polyline points="550,242 715,242 715,318" fill="none" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="575" y="236" font-size="13" fill="#334155">インプレー</text>
+
+  <!-- Stage 3: 打球の質は？ -->
+  <rect x="630" y="320" width="170" height="44" rx="6" fill="#f1f5f9" stroke="#475569" stroke-width="1.5"/>
+  <text x="715" y="347" text-anchor="middle" font-size="15" font-weight="bold" fill="#1e293b">打球の質は？</text>
+
+  <!-- 打球の質 → 4クラス (分配線) -->
+  <line x1="715" y1="364" x2="715" y2="415" stroke="#475569" stroke-width="1.5"/>
+  <line x1="638" y1="415" x2="936" y2="415" stroke="#475569" stroke-width="1.5"/>
+  <line x1="638" y1="415" x2="638" y2="468" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="735" y1="415" x2="735" y2="468" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="832" y1="415" x2="832" y2="468" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="936" y1="415" x2="936" y2="468" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- 最終結果ボックス -->
+  <g font-size="14" fill="#1e293b">
+    <rect x="155" y="470" width="100" height="36" rx="6" fill="#fef9c3" stroke="#ca8a04" stroke-width="1.2"/>
+    <text x="205" y="493" text-anchor="middle">見送り</text>
+    <rect x="355" y="470" width="90" height="36" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
+    <text x="400" y="493" text-anchor="middle">空振り</text>
+    <rect x="460" y="470" width="90" height="36" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"/>
+    <text x="505" y="493" text-anchor="middle">ファール</text>
+    <rect x="600" y="470" width="76" height="36" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.2"/>
+    <text x="638" y="493" text-anchor="middle">ゴロ</text>
+    <rect x="690" y="470" width="90" height="36" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.2"/>
+    <text x="735" y="493" text-anchor="middle">ライナー</text>
+    <rect x="794" y="470" width="76" height="36" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.2"/>
+    <text x="832" y="493" text-anchor="middle">フライ</text>
+    <rect x="884" y="470" width="104" height="36" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.2"/>
+    <text x="936" y="493" text-anchor="middle">ポップフライ</text>
+  </g>
+
+  <!-- 脚注 -->
+  <text x="500" y="543" text-anchor="middle" font-size="12" fill="#64748b">各段階は確率分布として出力。インプレー時は打球速度・角度・飛距離・方向の連続分布（MDN）も同時に推定</text>
+</svg>
