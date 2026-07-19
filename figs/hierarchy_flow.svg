@@ -9,7 +9,7 @@
   <!-- Stage 0: 投球予測AI (本研究で追加) -->
   <rect x="200" y="14" width="600" height="50" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/>
   <text x="500" y="34" text-anchor="middle" font-size="15" font-weight="bold" fill="#0c4a6e">投球予測AI: 次の1球（球種 × コース）を読む</text>
-  <text x="500" y="53" text-anchor="middle" font-size="12" fill="#0369a1">球種予測（Top-1 0.46 / Top-3 0.88）・コース予測（確率マップ、ゾーンTop-1 0.23）とも実装済み</text>
+  <text x="500" y="53" text-anchor="middle" font-size="12" fill="#0369a1">球種予測（Top-1 0.47 / Top-3 0.89）・コース予測（確率マップ、ゾーンTop-1 0.23）とも実装済み</text>
 
   <!-- 矢印: 投球AI → スイングする？ -->
   <polyline points="500,64 500,90 205,90 205,118" fill="none" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)"/>
