@@ -200,8 +200,8 @@ Ahn らのモデルは約 30 億パラメータで、大規模な計算機で学
 
 | 分類 | 内容 |
 |---|---|
-| 機械学習 | Python、PyTorch、Transformer、GRU、Mixture Density Network、勾配ブースティング木、アンサンブル、確率の較正 |
-| データ処理 | pandas、PyArrow（Parquet）、pybaseball |
+| 機械学習 | Python、PyTorch、Transformer、GRU、Mixture Density Network、勾配ブースティング木（scikit-learn）、アンサンブル、確率の較正 |
+| データ処理 | NumPy、pandas、PyArrow（Parquet）、pybaseball |
 | システム | Streamlit、Plotly、MLB Stats API のライブデータ接続、常駐の記録プログラム |
 | 品質管理 | pytest、ruff、自作の回帰チェック、実験ログ |
 | 計算環境 | 家庭用 PC 1 台（Windows 11、Ryzen 7 5700X、メモリ 32 GB、RTX 4070） |
